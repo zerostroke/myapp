@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myapp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "styles", media: "all" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <div>
+        <h1>MeBay</h1>
+        <% unless session[:user_id] %>
+          <ul id="nav">
+            <li><%= link_to :Signup, :signup %></li>
+            <li><%= link_to :Login, :login %></li>
+          </ul>
+        <% else %>
+          <ul id="nav">
+            <li><%= link_to :Home, :home %></li>
+            <li><%= link_to :Profile, :profile %></li>
+            <li><%= link_to :Setting, :setting %></li>
+            <li><%= link_to :Logout, :logout %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="clearfooter"></div>
+  </div>
+  <div id="footer"></div>
+
+</body>
+</html>

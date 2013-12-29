@@ -1,0 +1,9 @@
+<% @page_title = "UserAuth | Login" -%>
+<h1>Login</h1>
+<div class="form_settings">
+  <%= form_tag(:action => 'login_attempt') do %>
+    <p>Name or email:</br> <%= text_field_tag(:username_or_email) %></p>
+    <p>Password:</br> <%= password_field_tag :login_password %></p>
+    <%= submit_tag("Sign In", class: "submit") %>
+  <% end %>
+</div>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myapp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "styles", media: "all" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="bg">
+<div id="logo">
+  <a href="#">WALLNER LINES NETWORK</a>
+  <h2><a href="#">Myself Learning Initiation</a></h2>
+</div>
+<div id="main">
+<!-- header begins -->
+<div id="header">
+
+	 <!-- Navigation -->
+  <div id="navigation">
+    <% unless session[:user_id] %>
+      <ul id="nav">
+        <li><%= link_to :Signup, :signup %></li>
+        <li><%= link_to :Login, :login %></li>
+      </ul>
+    <% else %>
+      <ul id="nav">
+        <li><%= link_to :Home, :home %></li>
+        <li><%= link_to :Profile, :profile %></li>
+        <li><%= link_to :Setting, :setting %></li>
+        <li><%= link_to :Logout, :logout %></li>
+      </ul>
+    <% end %>
+  </div>
+  <!-- End Navigation -->
+
+</div>
+<!-- header ends -->
+
+<!-- content begins -->
+<div id="content_bg">
+      <%= yield %>
+</div>
+<!-- content ends -->
+
+<!-- footer begins -->
+<div id="footer">
+    <div id="footer_top">
+						<div id="footer_column1">
+							<h3>Recent posts</h3>
+							<div class="footer_text">
+								<p><a href="#">Suspendisse rutrum interdum lacinia.</a>
+								Suspendisse tempus aliquet elit sit amet pellentesque. Donec iaculis pulvinar mauris, ac vulputate justo pretium quis. </p>
+								<br />
+								<p><a href="#">Quisque luctus, mi ornare malesuada</a>
+								Suspendisse tempus aliquet elit sit amet pellentesque. Donec iaculis pulvinar </p>
+							</div>
+						</div>
+						<div id="footer_column2">
+							<h3>Share with Others</h3>
+							<div class="footer_text">
+								<div class="foot_pad">
+			                   		<div class="link1"><a href="#">Subscribe to Blog</a></div>
+			                        <div class="link2"><a href="#">Be a fan on Facebook</a></div>
+			                        <div class="link3"><a href="#">RSS Feed</a></div>
+			                        <div class="link4"><a href="#">Follow us on Twitter</a></div>
+			                    </div>
+							</div>
+						</div>
+						<div id="footer_column3">
+							<h3>Useful Resources</h3>
+							<div class="footer_text">
+								<div class="foot_pad">
+			                    	<ul class="ls">
+			                        	<li><a href="#">Lorem ipsum dolor</a></li>
+			                            <li><a href="#">Maecenas in turpis </a></li>
+			                            <li><a href="#">Morbi fringilla libero</a></li>
+			                            <li><a href="#">In venenatis metus vel </a></li>
+			                            <li><a href="#">Donec cursus quam ac </a></li>
+			                        </ul>
+			                    </div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+			<div id="footer_bot">
+				<p>Copyright  2012. <!-- Do not remove --><a href="http://www.myfreecsstemplates.com/" title="Free CSS Templates">Free CSS Templates</a><!-- end --></p>
+				<p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+			</div></div>
+<!-- footer ends -->
+</div>
+</div>
+</body>
+</html>
